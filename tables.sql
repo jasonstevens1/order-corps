@@ -30,11 +30,9 @@ DROP TABLE IF EXISTS `customers`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `customers` (
   `id` int(12) NOT NULL AUTO_INCREMENT,
-  `pswd` varchar(32) DEFAULT NULL,
-  `hash_key` varchar(40) DEFAULT NULL,
-  `first_name` varchar(50) DEFAULT NULL,
-  `middle_name` varchar(50) DEFAULT NULL,
-  `last_name` varchar(50) DEFAULT NULL,
+  `password` varchar(256) DEFAULT NULL,
+  `firstname` varchar(60) DEFAULT NULL,
+  `lastname` varchar(60) DEFAULT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `email` varchar(60) DEFAULT NULL,
   `updates_via_email` tinyint(1) NOT NULL DEFAULT 1,
@@ -42,6 +40,7 @@ CREATE TABLE `customers` (
   `opt_in_newsletter` tinyint(1) NOT NULL DEFAULT 0,
   `opt_in_third_party` tinyint(1) NOT NULL DEFAULT 0,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
